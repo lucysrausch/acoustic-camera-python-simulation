@@ -41,5 +41,5 @@ for x in range(-resX/2, resX/2):
                 # plus 100 so we can "go back in time"
 
         frame[x+resX / 2][y+resY / 2] = correlation
-ax = sns.heatmap(frame, linewidth=0)
+ax = sns.heatmap(frame**2, linewidth=0)
 plt.show()
