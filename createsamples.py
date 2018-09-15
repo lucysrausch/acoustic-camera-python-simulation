@@ -19,6 +19,8 @@ c = 343
 
 delay = 0
 
+mu, sigma = 0, 10000
+
 for i in range(0, int(rate * 0.1)): # use a 0.1sec long snipped
     datanew[i] = data[i+10000][0] # ...from somewhere in the middle of the sampple
 scipy.io.wavfile.write("soundfiles/" + "orig.wav", rate, datanew)
@@ -30,4 +32,7 @@ for a in range(mic):
     print(delay)
     for i in range(0, int(rate * 0.1)):
         datanew[i] = data[i+10000+delay][0]
+
+    noise = np.random.normal(mu, sigma, datanew.shape)
+    datanew = datanew + noise
     scipy.io.wavfile.write("soundfiles/" + str(a) + ".wav", rate, datanew)
