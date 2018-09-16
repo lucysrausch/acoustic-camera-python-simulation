@@ -19,7 +19,7 @@ c = 343
 
 delay = 0
 
-mu, sigma = 0, 10000
+mu, sigma = 0, 100
 
 for i in range(0, int(rate * 0.1)): # use a 0.1sec long snipped
     datanew[i] = data[i+10000][0] # ...from somewhere in the middle of the sampple
